@@ -1,0 +1,70 @@
+@use "root";
+@use "landing";
+// @use "content";
+
+// @use "contact";
+@use "header";
+@use "footer";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.site__shell {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  .content__padding {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    max-width: 1500px;
+    overflow: hidden;
+  }
+}
+
+.page__sheet {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  min-height: calc(100% - 110px);
+}
+
+#pull__up-page1 {
+  background-color: chocolate;
+}
+#pull__up-page2 {
+  background-color: rgb(30, 144, 210);
+  left: 10%;
+}
+#pull__up-page3 {
+  background-color: rgb(210, 30, 87);
+}
+
+#pull__up-page1,
+#pull__up-page2,
+#pull__up-page3 {
+  filter: grayscale(80%);
+  opacity: 70%;
+  z-index: 20;
+  transition: filter ease-in-out 1.75s, opacity ease-in-out 1.75s,
+    top ease-out 1.75s;
+
+  &.called {
+    top: 110px;
+    z-index: 50;
+  }
+  &.in__view {
+    filter: grayscale(0%);
+    transition: filter ease-in-out 0.5s, opacity ease-in-out 0.5s,
+      top ease-out 1.75s;
+    opacity: 100%;
+  }
+}
